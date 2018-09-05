@@ -41,7 +41,7 @@
 
     <section>
         <div>
-            <form>
+            <form action="cadastra_cliente.php" method="POST">
                 <input type="text" name="c_id" placeholder="Id"><br>
                 <input type="text" name="c_nome" placeholder="Nome"><br>
                 <input type="text" name="c_sobrenome" placeholder="Sobrenome"><br>
