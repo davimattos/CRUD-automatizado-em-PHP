@@ -16,5 +16,4 @@ if($response_code == "404") {
 } else {
     echo $output;
 }
-
 ?>
