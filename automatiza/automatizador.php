@@ -78,6 +78,43 @@ fwrite($file, $conteudo);
 fclose($file);
 
 //Fim
+//============================================================
+//Criando arquivos do controlador
+
+$nome = "../controller/".$reg[0].".controller.class.php";
+
+$conteudo ="<?php";
+$conteudo .="\n/*";
+$conteudo .="\n*    Descrição do arquivo";
+$conteudo .="\n*     @autor - Davi Mizael";
+$conteudo .="\n*     @data de criação -".date("d/m/Y h:i:s")."";
+$conteudo .="\n*     @arquivo - ".$reg[0].".controller.class.php";
+$conteudo .="\n*/";
+$conteudo .="\n";
+$conteudo .="\n";
+$conteudo .="//Inclui a classe generica CRUD";
+$conteudo .="\n";
+$conteudo .="require_once(\"../../functions/crud.class.php\");";
+$conteudo .="\n";
+$conteudo .="\nclass ".ucfirst($reg[0]."Controller extends Crud {");
+$conteudo .="\n";
+$conteudo .="\n//Método construtor";
+$conteudo .="\n public function __construct() {";
+$conteudo .="\n//Passa como parametro a tabela";
+$conteudo .="\n     parent::__construct(\"".$reg[0]."\");";
+$conteudo .="\n }";
+$conteudo .="\n";
+$conteudo .="\n public function lista".ucfirst($reg[0]."() {");
+$conteudo .="\n     return \$this->execute_query(\"SELECT * FROM ".$reg[0]."\");";
+$conteudo .="\n }";
+$conteudo .="}";
+$conteudo .="\n";
+$conteudo .="?>";
+
+$file = fopen($nome, 'a');
+fwrite($file, $conteudo);
+fclose($file);
+//FIM
 
 ?>
 
