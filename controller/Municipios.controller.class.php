@@ -162,16 +162,16 @@ class MunicipiosController extends Crud {
         //ordenando por ordem cresc. ou decres.
         $ordem =='A' ? $complemento = 'ASC' : $complemento = 'DESC';
 
-        $sql = "SELECT Habitantes.populacao FROM Habitantes INNER JOIN Municipios ON Municipios.municipiocompleto=Habitantes.cod_municipio WHERE Municipios.nomedauf='".$estado."';";
+        $sql = "SELECT sum(Habitantes.populacao) FROM Habitantes INNER JOIN Municipios ON Municipios.municipiocompleto=Habitantes.cod_municipio WHERE Municipios.nomedauf='".$estado."';";
         return $this->execute_query($sql);
     }
 
     //soma da população do estado
-    public function opulacaoPorEstado($nomemicrorregiao, $ordem='A') {
+    public function populacaoPorMicrorregiao($nomemicrorregiao, $ordem='A') {
         //ordenando por ordem cresc. ou decres.
         $ordem =='A' ? $complemento = 'ASC' : $complemento = 'DESC';
 
-        $sql = "SELECT Habitantes.populacao FROM Habitantes INNER JOIN Municipios ON Municipios.municipiocompleto=Habitantes.cod_municipio WHERE Municipios.nomemicrorregiao='".$nomemicrorregiao."';";
+        $sql = "SELECT sum(Habitantes.populacao) FROM Habitantes INNER JOIN Municipios ON Municipios.municipiocompleto=Habitantes.cod_municipio WHERE Municipios.nomemicrorregiao='".$nomemicrorregiao."';";
         return $this->execute_query($sql);
     }
 
