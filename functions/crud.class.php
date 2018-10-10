@@ -1,8 +1,8 @@
 <?php 
 /*
  * 	Descrição do Arquivo
- * 	@author - João Ricardo Gomes dos Reis
- * 	@date - 21/08/2017
+ * 	@author - Davi Mizael
+ * 	@date - 
  * 	@file - functions/crud.class.php
  * 	@description  - Classe genérica do Crud
  */

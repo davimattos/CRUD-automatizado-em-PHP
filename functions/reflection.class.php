@@ -1,7 +1,7 @@
 <?php 
 /*
  * 	Descrição do Arquivo
- * 	@author - João Ricardo Gomes dos Reis
+ * 	@author - Davi Mizael
  * 	@date - 21/08/2017
  * 	@file - functions/reflection.class.php
  * 	@description  - Base para a reflexão do sistema
