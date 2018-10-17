@@ -3,7 +3,7 @@
 header("Content-type: application/json; charset=utf-8");
 
 //recebe o parametro via URL
-$estado = $_GET["estado"];
+$expressao = $_GET["expressao"];
 
 //Inclui as classes controladoras
 require_once("../../controller/Municipios.controller.class.php");
@@ -12,7 +12,7 @@ require_once("../../controller/Municipios.controller.class.php");
 $controller = new MunicipiosController;
 
 //Método de listagem
-$registros = $controller->cidadesPorEstado($estado);
+$registros = $controller->municipiosPorCodigoNome($expressao);
 
 //Verifica se retornou algo
 if(mysqli_num_rows($registros)>0) {
@@ -25,7 +25,7 @@ if(mysqli_num_rows($registros)>0) {
         array_push($json, $reg);
     }
 
-    //Exibo o JSON
+    //Exibe o JSON
     echo json_encode($json);
 }
 ?>

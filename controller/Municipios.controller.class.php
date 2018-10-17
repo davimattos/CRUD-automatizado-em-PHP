@@ -175,8 +175,35 @@ class MunicipiosController extends Crud {
         return $this->execute_query($sql);
     }
 
+    //municipios por codigo ou nome
+    public function municipiosPorCodigoNome($expressao) {
+        $sql = " 
+                SELECT mu.municipiocompleto,
+                    mu.nomedauf,
+                    mu.nomemunicipio,
+                    ha.populacao
+                FROM Municipios AS mu
+                INNER JOIN Habitantes AS ha ON ha.cod_municipio = mu.municipiocompleto
+                WHERE mu.nomemunicipio LIKE '%".$expressao."%' OR mu.municipiocompleto LIKE '%".$expressao."%'
+                ORDER BY mu.nomemunicipio;";
+        return $this->execute_query($sql);
+    }
 
+    //municipios por codigo
+    public function municipioPorCodigo($codigo) {
+        $sql = "
+                SELECT mu.municipiocompleto,
+                        mu.nomedauf,
+                        mu.nomemunicipio,
+                        mu.nomemesorregiao,
+                        mu.nomemicrorregiao,
+                        ha.populacao
+                FROM Municipios AS mu
+                INNER JOIN Habitantes AS ha ON ha.cod_municipio = mu.municipiocompleto
+                WHERE mu.municipiocompleto = ".$codigo."
+                ORDER BY mu.nomemunicipio;";
 
+        return $this->execute_query($sql);    
+    }
 }
 ?>
-
